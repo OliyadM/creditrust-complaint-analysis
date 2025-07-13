@@ -1,0 +1,27 @@
+# Python
+  *.pyc
+  __pycache__/
+  *.pyo
+  *.pyd
+  .Python
+  env/
+  .venv/
+  venv/
+  *.egg-info/
+  .pytest_cache/
+  
+  # Data
+  data/raw/*
+  !data/raw/.gitkeep
+  data/filtered_complaints.csv
+  
+  # Jupyter Notebooks
+  .ipynb_checkpoints/
+  
+  # IDEs
+  .vscode/
+  .idea/
+  
+  # Misc
+  *.log
+  *.DS_Store
