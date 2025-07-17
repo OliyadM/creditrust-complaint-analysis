@@ -1,27 +1,29 @@
 # Python
-  *.pyc
-  __pycache__/
-  *.pyo
-  *.pyd
-  .Python
-  env/
-  .venv/
-  venv/
-  *.egg-info/
-  .pytest_cache/
-  
-  # Data
-  data/raw/*
-  !data/raw/.gitkeep
-  data/filtered_complaints.csv
-  
-  # Jupyter Notebooks
-  .ipynb_checkpoints/
-  
-  # IDEs
-  .vscode/
-  .idea/
-  
-  # Misc
-  *.log
-  *.DS_Store
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Data
+data/raw/*
+!data/raw/.gitkeep      # Keep raw folder tracked with placeholder
+data/filtered_complaints.csv  # Ignore filtered data files, add others if needed
+data/cleaned_complaints.csv   # Ignore cleaned data (add if you create it)
+data/vector_store/             # Ignore vector DB folder if you add it later
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+
+# Misc
+*.log
+*.DS_Store
