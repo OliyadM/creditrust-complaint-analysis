@@ -11,6 +11,7 @@ venv/
 .pytest_cache/
 
 # Data
+data
 data/raw/*
 !data/raw/.gitkeep      # Keep raw folder tracked with placeholder
 data/filtered_complaints.csv  # Ignore filtered data files, add others if needed
