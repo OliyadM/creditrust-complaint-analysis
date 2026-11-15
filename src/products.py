@@ -90,6 +90,24 @@ def map_product(product, sub_product, company=None, narrative=None) -> str | Non
     return None
 
 
+_REDACTION = re.compile(r"\b[Xx]{2,}(?:/[Xx]{2,})*\b")
+_AMOUNT = re.compile(r"\{\$([\d,]+(?:\.\d+)?)\}")
+_WS = re.compile(r"\s+")
+
+
+def clean_narrative(text) -> str:
+    """Normalise a complaint narrative for embedding and display.
+
+    CFPB replaces personal details with XXXX and wraps amounts in {$...}. The
+    redaction runs are dropped, amounts are unwrapped and whitespace collapsed.
+    Case and punctuation are kept because the generator reads this text too.
+    """
+    text = _s(text)
+    text = _AMOUNT.sub(r"$\1", text)
+    text = _REDACTION.sub(" ", text)
+    return _WS.sub(" ", text).strip()
+
+
 def map_products_frame(df, product="Product", sub="Sub-product",
                        company="Company", narrative="Consumer complaint narrative"):
     """Vectorised version of map_product for a pandas DataFrame. Returns a Series

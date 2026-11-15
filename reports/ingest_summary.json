@@ -1,0 +1,16 @@
+{
+  "archive_files": 21,
+  "rows_read": 17533918,
+  "rows_with_narrative": 3851415,
+  "in_scope_rows": 384369,
+  "in_scope_unique": 384369,
+  "date_min": "2015-03-19",
+  "date_max": "2026-07-29",
+  "per_product": {
+    "Credit card": 227147,
+    "Personal loan": 25330,
+    "Buy Now, Pay Later (BNPL)": 8537,
+    "Savings account": 18685,
+    "Money transfers": 104670
+  }
+}

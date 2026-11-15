@@ -6,11 +6,13 @@ files. This script downloads them, streams each CSV in chunks, keeps rows with
 a non-empty narrative that map to one of the five product lines and writes:
 
   data/filtered/filtered_complaints.csv.gz   every matching complaint
+  data/processed/sample_complaints.csv.gz    seeded per-product sample
   reports/product_counts.csv                 counts per product
 
 Usage:
   python -m src.ingest download
   python -m src.ingest filter
+  python -m src.ingest sample --per-product 4000
 """
 from __future__ import annotations
 
@@ -24,7 +26,7 @@ from pathlib import Path
 import pandas as pd
 
 from src import config
-from src.products import PRODUCTS, map_products_frame
+from src.products import PRODUCTS, clean_narrative, map_products_frame
 
 ARCHIVE_PAGE = (
     "https://www.consumerfinance.gov/foia-requests/foia-electronic-reading-room/"
@@ -166,16 +168,40 @@ def run_filter(raw_dir: Path = config.RAW_DIR, out: Path = config.FILTERED_PATH)
     return df
 
 
+def stratified_sample(df: pd.DataFrame, per_product: int, seed: int = config.SEED) -> pd.DataFrame:
+    """Take up to `per_product` complaints from each product with a fixed seed."""
+    parts = [
+        g.sample(n=min(per_product, len(g)), random_state=seed)
+        for _, g in df.groupby("product", sort=True)
+    ]
+    out = pd.concat(parts).sort_values("complaint_id").reset_index(drop=True)
+    out["clean_narrative"] = out["narrative"].map(clean_narrative)
+    return out[out["clean_narrative"].str.len() > 0].reset_index(drop=True)
+
+
+def run_sample(per_product: int, src: Path = config.FILTERED_PATH, out: Path = config.SAMPLE_PATH):
+    df = pd.read_csv(src, dtype=str)
+    sample = stratified_sample(df, per_product)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    sample.to_csv(out, index=False, compression="gzip")
+    print(sample["product"].value_counts().to_string())
+    return sample
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("download")
     sub.add_parser("filter")
+    s = sub.add_parser("sample")
+    s.add_argument("--per-product", type=int, default=4000)
     args = ap.parse_args(argv)
     if args.cmd == "download":
         download()
-    else:
+    elif args.cmd == "filter":
         run_filter()
+    else:
+        run_sample(args.per_product)
 
 
 if __name__ == "__main__":
