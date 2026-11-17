@@ -1,6 +1,7 @@
 # Runtime + pipeline. CPU-only torch wheel; on macOS drop the +cpu suffix.
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch==2.15.0+cpu
+transformers==5.23.0
 sentence-transformers==6.3.0
 faiss-cpu==1.16.0
 langchain-text-splitters==1.1.3

@@ -1,0 +1,30 @@
+{
+  "note": "Used only to pick rag.MIN_SCORE, rag.MIN_RELEVANCE and rag.HIT_RELEVANCE. Not part of the evaluation set. The question-style items were added after a first yes/no version of the relevance check declined most question-style queries.",
+  "on_topic": [
+    "Customers say their credit limit was cut without notice",
+    "Problems closing a savings account",
+    "Loan servicer misapplied my payments",
+    "Afterpay charged me twice for one order",
+    "Western Union transfer was held for review",
+    "Complaints about overdraft on savings",
+    "card annual fee not disclosed",
+    "Why are customers unhappy with buy now pay later services?",
+    "What complaints do customers have about credit card annual fees?",
+    "Why do borrowers complain about personal loan payoff amounts?",
+    "What problems do people have with Affirm payments?",
+    "What do customers say about closing their savings accounts?",
+    "Why do PayPal or Venmo transfers get frozen?"
+  ],
+  "off_topic": [
+    "What is the stock price of Apple today?",
+    "How many employees does the company have?",
+    "Who won the football world cup?",
+    "What is the CEO's salary?",
+    "How do I file my income taxes?",
+    "What is the weather in Nairobi?",
+    "What is the interest rate set by the Federal Reserve this year?",
+    "What is the company's annual revenue?",
+    "Which bank has the best mortgage rates?",
+    "How do I reset my online banking password?"
+  ]
+}
