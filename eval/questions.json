@@ -1,0 +1,14 @@
+[
+  {"id": "q01", "product": "Credit card", "question": "What are the most common complaints about credit card late fees and interest charges?"},
+  {"id": "q02", "product": "Credit card", "question": "Why do customers dispute fraudulent charges on their credit cards, and how do card issuers respond?"},
+  {"id": "q03", "product": "Personal loan", "question": "What problems do borrowers report with personal installment loan payments?"},
+  {"id": "q04", "product": "Personal loan", "question": "Do customers complain about high interest rates or hidden fees on personal loans?"},
+  {"id": "q05", "product": "Buy Now, Pay Later (BNPL)", "question": "Why are customers unhappy with buy now pay later services like Klarna or Afterpay?"},
+  {"id": "q06", "product": "Buy Now, Pay Later (BNPL)", "question": "What happens when a pay-later refund for a returned item is not applied to the customer's plan?"},
+  {"id": "q07", "product": "Savings account", "question": "What issues do customers report when trying to withdraw money from their savings account?"},
+  {"id": "q08", "product": "Savings account", "question": "Do customers complain about not receiving promised savings account interest or bonuses?"},
+  {"id": "q09", "product": "Money transfers", "question": "What do people report after sending money through Zelle or Cash App to a scammer?"},
+  {"id": "q10", "product": "Money transfers", "question": "Why are international money transfers delayed or never received?"},
+  {"id": "q11", "product": null, "question": "What was CrediTrust Financial's net profit in 2024?"},
+  {"id": "q12", "product": null, "question": "What is a good recipe for chocolate cake?"}
+]

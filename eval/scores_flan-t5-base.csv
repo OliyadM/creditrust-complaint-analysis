@@ -1,0 +1,13 @@
+id,score,justification
+q01,1,Declined although all 5 retrieved complaints were about credit card late fees and interest (relevance check too strict for this wording)
+q02,2,Only says cards were fraudulently charged; ignores how issuers respond although a finding mentions refused refunds
+q03,2,'Loan has not matured' is off-target; better findings (no payment flexibility; no payment plan) were not used in the summary
+q04,4,Correct and supported (high rates and hidden fees); generic
+q05,3,One specific supported problem (Klarna and undelivered goods); misses dispute handling and declines
+q06,3,Correct (refund not applied) but no detail
+q07,2,'Customer service was rude' barely answers the withdrawal question; misses fraud holds on withdrawals
+q08,4,Supported and specific (bonus not paid); second sentence echoes the question
+q09,3,Relevant but a verbatim first-person copy of one complaint rather than a summary
+q10,3,Gives one supported cause (amount shrinking with exchange rate during delay); partial
+q11,5,Declined
+q12,5,Declined

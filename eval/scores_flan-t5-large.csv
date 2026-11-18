@@ -1,0 +1,13 @@
+id,score,justification
+q01,1,Declined although the retrieved complaints were on topic
+q02,1,Declined although the retrieved complaints were on topic
+q03,3,One supported problem (no payment plan; outrageous interest) copied from one complaint
+q04,4,Correct and supported; generic and partly copied
+q05,3,One specific supported problem (undelivered goods); misses the refund and credit-decline findings
+q06,1,Declined although several retrieved complaints describe refunds not applied
+q07,4,Specific and supported (fraud holds on large withdrawals; poor online access); copied wording
+q08,4,Supported and specific; second sentence echoes the question
+q09,3,Describes unauthorized Zelle transfers; question asked about scams; partial
+q10,3,Funds not received is supported but gives no reasons for delays
+q11,5,Declined
+q12,5,Declined
