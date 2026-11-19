@@ -1,0 +1,17 @@
+# Notebook, tests and lint. Tests do not need torch or model downloads.
+pandas==3.1.1
+numpy==2.5.5
+pyarrow==26.0.1
+faiss-cpu==1.16.0
+langchain-text-splitters==1.1.3
+requests==2.34.2
+tabulate==0.10.0
+matplotlib==3.11.2
+seaborn==0.13.2
+jupyter==1.1.1
+nbconvert==7.17.2
+nbformat==5.11.1
+ipykernel==7.4.0
+gradio_client==2.7.2
+pytest==9.2.0
+ruff==0.17.6
