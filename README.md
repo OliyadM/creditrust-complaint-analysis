@@ -9,6 +9,30 @@ personal loans, Buy Now Pay Later (BNPL), savings accounts and money transfers**
 Everything runs locally on CPU with free models: MiniLM embeddings, a FAISS index and
 `google/flan-t5-base` for generation, behind a small Gradio app.
 
+## What changed in v2
+
+v1 (Jul–Aug 2025, the history below this rebuild) was a course project. Revisiting it in
+Nov 2026, several things did not hold up, so v2 rebuilds the pipeline on top of it:
+
+- **Counts were not reproducible.** v1 filtered on exact names like `"Personal loan"` and
+  `"Buy Now, Pay Later (BNPL)"`, which are not CFPB product values, so only credit cards (and the
+  legacy money-transfer label) actually matched. The 82,164 figure in the old README could not be
+  reproduced and is dropped. v2 maps every historical CFPB product/sub-product name and detects
+  BNPL by company and keywords (`src/products.py`), with per-product counts above.
+- **Data source changed.** CFPB removed narratives from the live bulk download in 2026; v2 reads
+  the official narratives archive with a script (`src/ingest.py`) instead of a local CSV.
+- **New pipeline.** Chunk text is stored with the index (v1 re-read the full CSV by row index),
+  generation uses `flan-t5-base` on CPU instead of Mixtral-8x7B (not runnable on a normal machine),
+  answers go through a relevance check and per-complaint summaries, and imports/paths work from
+  the repo root.
+- **Real evaluation.** 12 hand-written questions with retrieval metrics, latency and manually
+  scored answers (`reports/eval.md`), instead of no measured results.
+- **Tests, CI and complete requirements.** pytest suite, GitHub Actions lint + tests, and pinned
+  requirements (v1 listed only pandas/numpy/matplotlib/seaborn/jupyter).
+- The v1 notebook and scripts (`notebooks/eda and preprocessing.ipynb`, `src/chunk_embed_index.py`,
+  `src/rag_pipeline.py`) are replaced by `notebooks/eda.ipynb` and the modules in `src/`; they
+  remain in the git history.
+
 ## Data
 
 **Source.** CFPB removed narratives from the live bulk download, so the data comes from the
